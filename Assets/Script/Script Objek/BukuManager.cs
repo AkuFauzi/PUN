@@ -49,11 +49,16 @@ public class BukuManager : MonoBehaviourPun
                 buku.SetActive(false);
                 IsOpen= false;
             }
+
+            BukuUpdate();
         }
     }
 
     void BukuUpdate()
     {
-
+        if (Item[0]==null)
+        {
+            Kertas[0].SetActive(true);
+        }
     }
 }

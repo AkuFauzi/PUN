@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (PhotonNetwork.IsConnected == false)
         {
-            SceneManager.LoadScene("LobbyScene");
+            SceneManager.LoadScene("Lobby");
             return;
         }
         PlayerControllerNetwork.RefreshInstance(ref localPlayerNetwork,

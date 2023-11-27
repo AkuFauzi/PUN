@@ -46,7 +46,7 @@ public class PlayerControllerNetwork : MonoBehaviourPun
         {
             cinemachineFreeLook = FindObjectOfType<CinemachineFreeLook>();
             cinemachineFreeLook.Follow = gameObject.transform;
-            cinemachineFreeLook.LookAt = gameObject.transform;
+            cinemachineFreeLook.LookAt = gameObject.transform.GetChild(3);
             cam = GameObject.FindGameObjectWithTag("MainCamera");
             joystick = FindObjectOfType<Joystick>();
             jumpButton = FindObjectOfType<JumpButton>();

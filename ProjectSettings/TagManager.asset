@@ -10,6 +10,8 @@ TagManager:
   - Lembaran
   - Kertas
   - Buku
+  - Item
+  - Interact
   layers:
   - Default
   - TransparentFX
