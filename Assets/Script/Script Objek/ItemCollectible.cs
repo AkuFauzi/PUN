@@ -7,11 +7,20 @@ public class ItemCollectible : MonoBehaviourPun
 {
     public GameObject Interact;
 
-    private void Start()
+    private void Awake()
     {
         if (photonView.IsMine)
         {
             Interact = GameObject.FindGameObjectWithTag("Interact");
+        }
+
+    }
+
+    private void Start()
+    {
+        if (photonView.IsMine)
+        {
+            
             Interact.SetActive(false);
         }
 

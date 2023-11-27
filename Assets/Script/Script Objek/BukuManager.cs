@@ -27,7 +27,7 @@ public class BukuManager : MonoBehaviourPun
 
             IsOpen = false;
 
-            for(int i = 0; i < Kertas.Length; i++)
+            for(int i = 0; i < Item.Length; i++)
             {
                 Kertas[i].SetActive(false);
             }
