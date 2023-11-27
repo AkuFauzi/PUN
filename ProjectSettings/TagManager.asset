@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - GroundCheck
+  - SpawnPoint
+  - Lembaran
+  - Kertas
+  - Buku
   layers:
   - Default
   - TransparentFX
