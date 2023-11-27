@@ -9,8 +9,12 @@ public class ItemCollectible : MonoBehaviourPun
 
     private void Start()
     {
-        Interact = GameObject.FindGameObjectWithTag("Interact");
-        Interact.SetActive(false);
+        if (photonView.IsMine)
+        {
+            Interact = GameObject.FindGameObjectWithTag("Interact");
+            Interact.SetActive(false);
+        }
+
     }
 
     private void OnTriggerStay(Collider other)

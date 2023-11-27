@@ -60,5 +60,25 @@ public class BukuManager : MonoBehaviourPun
         {
             Kertas[0].SetActive(true);
         }
+        if (Item[1] == null)
+        {
+            Kertas[1].SetActive(true);
+        }
+        if (Item[2] == null)
+        {
+            Kertas[2].SetActive(true);
+        }
+        if (Item[3] == null)
+        {
+            Kertas[3].SetActive(true);
+        }
+        if (Item[4] == null)
+        {
+            Kertas[4].SetActive(true);
+        }
+        if (Item[5] == null)
+        {
+            Kertas[5].SetActive(true);
+        }
     }
 }
