@@ -13,7 +13,7 @@ public class BukuManager : MonoBehaviourPun
     public GameObject[] Lembar;
 
 
-    bool IsOpen;
+    public bool IsOpen;
 
     // Start is called before the first frame update
     void Start()

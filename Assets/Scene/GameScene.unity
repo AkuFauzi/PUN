@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 743.4961, g: 727.5635, b: 722.91943, a: 1}
+  m_IndirectSpecularColor: {r: 760.9148, g: 751.8916, b: 762.8032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1602,6 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685c2c684b7afbd498801747f2027faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BukuManager: {fileID: 0}
 --- !u!1 &797681262
 GameObject:
   m_ObjectHideFlags: 1
@@ -1649,6 +1650,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &993621566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993621567}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993621567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993621566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1183330771}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1060854760
 GameObject:
@@ -2299,6 +2332,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118902131}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1183330771 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
+    type: 3}
+  m_PrefabInstance: {fileID: 1944026484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1309659363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,12 +2892,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 993621567}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
@@ -2883,17 +2922,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a00df7be455c7fd439e2470214a88539,
         type: 3}
@@ -3721,9 +3760,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BukuManager, Assembly-CSharp
-        m_MethodName: Kembali
+      - m_Target: {fileID: 786258949}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: OnClickPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4106,9 +4145,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BukuManager, Assembly-CSharp
-        m_MethodName: Next
+      - m_Target: {fileID: 786258949}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: OnClickNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4589,9 +4628,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 786258949}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: TutupBuku
+        m_MethodName: OnClickExitBook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

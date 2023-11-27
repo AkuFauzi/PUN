@@ -376,6 +376,7 @@ MonoBehaviour:
   Item: []
   Kertas: []
   Lembar: []
+  IsOpen: 0
 --- !u!1 &7548196039468358153
 GameObject:
   m_ObjectHideFlags: 0
