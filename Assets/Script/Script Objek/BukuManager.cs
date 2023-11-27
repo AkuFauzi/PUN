@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BukuManager : MonoBehaviourPun
 {
+    public static BukuManager Instance;
+
     public GameObject buku;
     public GameObject[] Item;
     public GameObject[] Kertas;
