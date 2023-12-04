@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BukuManager : MonoBehaviourPun
@@ -11,7 +12,8 @@ public class BukuManager : MonoBehaviourPun
     public GameObject[] Item;
     public GameObject[] Kertas;
     public GameObject[] Lembar;
-
+    public GameObject[] colliderQuest;
+    public TextMeshProUGUI textMeshProUGUI;
 
     public bool IsOpen;
 
@@ -24,6 +26,8 @@ public class BukuManager : MonoBehaviourPun
             Item = GameObject.FindGameObjectsWithTag("Item");
             Kertas = GameObject.FindGameObjectsWithTag("Kertas");
             Lembar = GameObject.FindGameObjectsWithTag("Lembaran");
+            colliderQuest = GameObject.FindGameObjectsWithTag("ColliderQuest");
+            textMeshProUGUI = GameObject.FindGameObjectWithTag("TextMisi").GetComponent<TextMeshProUGUI>();
 
             buku.SetActive(false);
 
@@ -53,6 +57,7 @@ public class BukuManager : MonoBehaviourPun
             }
 
             BukuUpdate();
+            MisiUpdate();
         }
     }
 
@@ -83,4 +88,14 @@ public class BukuManager : MonoBehaviourPun
             Kertas[5].SetActive(true);
         }
     }
+
+    void MisiUpdate()
+    {
+        textMeshProUGUI.text = "Temukan Semua Lembar Sejarah dan Naik ke Tingkat Selanjutnya";
+        if (Item[5] == null)
+        {
+            textMeshProUGUI.text = "";
+        }
+    }
+
 }

@@ -12,6 +12,7 @@ TagManager:
   - Buku
   - Item
   - Interact
+  - TextMisi
   layers:
   - Default
   - TransparentFX

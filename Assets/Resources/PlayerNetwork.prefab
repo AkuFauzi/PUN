@@ -376,6 +376,7 @@ MonoBehaviour:
   Item: []
   Kertas: []
   Lembar: []
+  textMeshProUGUI: {fileID: 0}
   IsOpen: 0
 --- !u!1 &7548196039468358153
 GameObject:
