@@ -13,6 +13,7 @@ TagManager:
   - Item
   - Interact
   - TextMisi
+  - ColliderQuest
   layers:
   - Default
   - TransparentFX

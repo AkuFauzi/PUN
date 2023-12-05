@@ -94,7 +94,7 @@ public class BukuManager : MonoBehaviourPun
         textMeshProUGUI.text = "Temukan Semua Lembar Sejarah dan Naik ke Tingkat Selanjutnya";
         if (Item[5] == null)
         {
-            textMeshProUGUI.text = "";
+            textMeshProUGUI.text = "Objek Telah diambil";
         }
     }
 

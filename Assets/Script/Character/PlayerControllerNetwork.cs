@@ -8,8 +8,8 @@ public class PlayerControllerNetwork : MonoBehaviourPun
     CinemachineFreeLook cinemachineFreeLook;
     public bool isControlled = true;
     // joystick
-    Joystick joystick;
-    JumpButton jumpButton;
+
+
     public float turnSmoothTime = 0.1f;
     public float movementSpeed = 4f;
     public float jumpHeight = 2f;
@@ -48,8 +48,7 @@ public class PlayerControllerNetwork : MonoBehaviourPun
             cinemachineFreeLook.Follow = gameObject.transform;
             cinemachineFreeLook.LookAt = gameObject.transform.GetChild(3);
             cam = GameObject.FindGameObjectWithTag("MainCamera");
-            joystick = FindObjectOfType<Joystick>();
-            jumpButton = FindObjectOfType<JumpButton>();
+
         }
         characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
@@ -72,8 +71,8 @@ public class PlayerControllerNetwork : MonoBehaviourPun
                 characterController.enabled = true;
             }
             currentTransformY = GetComponent<Transform>().transform.eulerAngles.y;
-            horizontal = Input.GetAxisRaw("Horizontal") + joystick.Horizontal;
-            vertical = Input.GetAxisRaw("Vertical") + joystick.Vertical;
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
             isGrounded = Physics.CheckSphere(groundCheck.transform.position, groundDistance, groundMask);
             if (isGrounded && velocity.y < 0f)
             {
@@ -91,13 +90,20 @@ public class PlayerControllerNetwork : MonoBehaviourPun
             bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
             bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
             isRunning = hasHorizontalInput || hasVerticalInput;
-            animator.SetBool("IsRunning", isRunning);
-            animator.SetBool("IsGrounded", isGrounded);
-            if ((Input.GetKey(KeyCode.Space) || jumpButton.pressed) && isGrounded && Time.time > canJump)
+
+            if ((Input.GetKey(KeyCode.LeftShift)))
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                canJump = Time.time + 1f;
+                animator.SetFloat("speed", 1f);
             }
+            else if(move.magnitude != 0)
+            {
+                animator.SetFloat("speed", 0.5f);
+            }
+            else
+            {
+                animator.SetFloat("speed", 0f);
+            }
+
             velocity.y += gravity * Time.deltaTime;
             characterController.Move(velocity * Time.deltaTime);
         }
