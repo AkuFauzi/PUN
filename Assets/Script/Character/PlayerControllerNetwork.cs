@@ -94,10 +94,12 @@ public class PlayerControllerNetwork : MonoBehaviourPun
             if ((Input.GetKey(KeyCode.LeftShift)))
             {
                 animator.SetFloat("speed", 1f);
+                movementSpeed = 8f;
             }
             else if(move.magnitude != 0)
             {
                 animator.SetFloat("speed", 0.5f);
+                movementSpeed = 4f;
             }
             else
             {
