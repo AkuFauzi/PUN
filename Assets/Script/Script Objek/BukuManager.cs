@@ -30,7 +30,7 @@ public class BukuManager : MonoBehaviourPun
             textMeshProUGUI = GameObject.FindGameObjectWithTag("TextMisi").GetComponent<TextMeshProUGUI>();
 
             buku.SetActive(false);
-
+            Kertas[0].SetActive(false);
             IsOpen = false;
 
             for(int i = 0; i < Item.Length; i++)
@@ -91,11 +91,29 @@ public class BukuManager : MonoBehaviourPun
 
     void MisiUpdate()
     {
-        textMeshProUGUI.text = "Temukan Semua Lembar Sejarah dan Naik ke Tingkat Selanjutnya";
-        if (Item[5] == null)
+        if (Item[3] != null)
         {
-            textMeshProUGUI.text = "Objek Telah diambil";
+            textMeshProUGUI.text = "Temukan satu lembar sejarah dan naik ke tingkat selanjutnya";
+            
         }
-    }
+        else
+        {
+            textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
+        }
 
+        if (Item[2] || Item[4] || Item[5]!=null)
+        {
+            textMeshProUGUI.text = "Temukan tiga lembar sejarah dan naik ke tingkat selanjutnya";
+        }
+        else
+        {
+            textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
+        }
+
+        if (Item[0] || Item[1] || Item[2] || Item[3] || Item[4] || Item[5] == null)
+        {
+
+        }
+
+    }
 }
