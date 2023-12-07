@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: 0739e96d255a395418228895d62b8b62
+SketchUpImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 3
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.0254
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  generateBackFace: 1
+  mergeCoplanarFaces: 0
+  selectedNodes: 00000000010000000200000003000000040000000700000008000000090000000c0000000d0000000e0000001100000012000000130000001600000017000000180000001b0000001c0000001d0000002000000021000000220000002500000026000000270000002a0000002b0000002c0000002f0000003000000031000000340000003500000036000000390000003a0000003b0000003e0000003f0000004000000043000000440000004500000048000000490000004a0000004d0000004e0000004f0000005200000053000000540000005700000058000000590000005c0000005d0000005e0000006100000062000000630000006600000067000000680000006b0000006c0000006d0000007000000071000000720000007500000076000000770000007a0000007b0000007c0000007f0000008000000081000000840000008500000086000000890000008a0000008b0000008e0000008f0000009000000093000000940000009500000098000000990000009a0000009d0000009e0000009f000000a2000000a3000000a4000000a5000000a8000000a9000000aa000000ad000000ae000000af000000b2000000b3000000b4000000b7000000b8000000b9000000bc000000bd000000be000000c1000000c2000000c3000000c6000000c7000000c8000000cb000000cc000000cd000000d0000000d1000000d2000000d5000000d6000000d7000000da000000db000000dc000000df000000e0000000e1000000e4000000e5000000e6000000e9000000ea000000eb000000ee000000ef000000f0000000f3000000f4000000f5000000f8000000f9000000fa000000fd000000fe000000ff0000000201000003010000040100000701000008010000090100000c0100000d0100000e0100001101000012010000130100001601000017010000180100001b0100001c0100001d0100001e0100002101000022010000230100002601000027010000280100002b0100002c0100002d0100003001000031010000320100003501000036010000370100003a0100003b0100003c0100003f0100004001000041010000440100004501000046010000490100004a0100004b0100004e0100004f0100005001000053010000540100005501000058010000590100005a0100005d0100005e0100005f0100006201000063010000640100006701000068010000690100006c0100006d0100006e010000
+  assetHash:
+    serializedVersion: 2
+    Hash: 5abb81e7b3feb3f4c39a879babceaf8e
+  fileUnit: 0
