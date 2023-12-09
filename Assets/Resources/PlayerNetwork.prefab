@@ -377,6 +377,7 @@ MonoBehaviour:
   Kertas: []
   Lembar: []
   colliderQuest: []
+  winUI: {fileID: 0}
   textMeshProUGUI: {fileID: 0}
   IsOpen: 0
 --- !u!1 &7548196039468358153

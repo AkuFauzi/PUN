@@ -38,4 +38,9 @@ public class ButtonManager : MonoBehaviourPun
         BukuManager.buku.SetActive(false);
         BukuManager.IsOpen = false;
     }
+
+    //public void OnClickWInUI()
+    //{
+    //    BukuManager.winUI.SetActive(false);
+    //}
 }

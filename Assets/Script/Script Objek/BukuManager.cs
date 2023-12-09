@@ -13,6 +13,7 @@ public class BukuManager : MonoBehaviourPun
     public GameObject[] Kertas;
     public GameObject[] Lembar;
     public GameObject[] colliderQuest;
+    //public GameObject winUI;
     public TextMeshProUGUI textMeshProUGUI;
 
     public bool IsOpen;
@@ -27,8 +28,10 @@ public class BukuManager : MonoBehaviourPun
             Kertas = GameObject.FindGameObjectsWithTag("Kertas");
             Lembar = GameObject.FindGameObjectsWithTag("Lembaran");
             colliderQuest = GameObject.FindGameObjectsWithTag("ColliderQuest");
+            //winUI = GameObject.FindGameObjectWithTag("WinUI");
             textMeshProUGUI = GameObject.FindGameObjectWithTag("TextMisi").GetComponent<TextMeshProUGUI>();
 
+            //winUI.SetActive(false);
             buku.SetActive(false);
             Kertas[0].SetActive(false);
             IsOpen = false;
@@ -110,10 +113,10 @@ public class BukuManager : MonoBehaviourPun
             textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
         }
 
-        if (Item[0] || Item[1] || Item[2] || Item[3] || Item[4] || Item[5] == null)
-        {
-
-        }
+        //if (Item[0] || Item[1] || Item[2] || Item[3] || Item[4] || Item[5] == null)
+        //{
+        //    winUI.SetActive(true);
+        //}
 
     }
 }
