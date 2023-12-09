@@ -235,13 +235,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.7
+  m_Height: 1.5
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.85, z: 0}
+  m_Center: {x: 0, y: 0.76, z: 0}
 --- !u!54 &7548196039468123692
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -377,7 +377,6 @@ MonoBehaviour:
   Kertas: []
   Lembar: []
   colliderQuest: []
-  winUI: {fileID: 0}
   textMeshProUGUI: {fileID: 0}
   IsOpen: 0
 --- !u!1 &7548196039468358153

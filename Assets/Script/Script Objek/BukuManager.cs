@@ -80,15 +80,23 @@ public class BukuManager : MonoBehaviourPun
         }
         if (Item[3] == null)
         {
-            Kertas[3].SetActive(true);
+            Kertas[6].SetActive(true);
         }
         if (Item[4] == null)
         {
-            Kertas[4].SetActive(true);
+            Kertas[7].SetActive(true);
         }
         if (Item[5] == null)
         {
-            Kertas[5].SetActive(true);
+            Kertas[8].SetActive(true);
+        }
+        if (Item[6] == null)
+        {
+            Kertas[3].SetActive(true);
+        }
+        if (Item[7] == null)
+        {
+            Kertas[4].SetActive(true);
         }
     }
 
@@ -97,14 +105,8 @@ public class BukuManager : MonoBehaviourPun
         if (Item[3] != null)
         {
             textMeshProUGUI.text = "Temukan satu lembar sejarah dan naik ke tingkat selanjutnya";
-            
         }
-        else
-        {
-            textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
-        }
-
-        if (Item[2] || Item[4] || Item[5]!=null)
+        else if (Item[2] || Item[4] || Item[5]!=null)
         {
             textMeshProUGUI.text = "Temukan tiga lembar sejarah dan naik ke tingkat selanjutnya";
         }
