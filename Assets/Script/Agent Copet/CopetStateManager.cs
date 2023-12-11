@@ -1,9 +1,8 @@
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopetStateManager : MonoBehaviourPun
+public class CopetStateManager : MonoBehaviour
 {
     CopetBaseState currentsatet;
     public CopetWander CopetJalan = new CopetWander();
@@ -11,16 +10,14 @@ public class CopetStateManager : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-            currentsatet = CopetJalan;
-            currentsatet.EnterState(this);
-
+        currentsatet = CopetJalan;
+        currentsatet.EnterState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-            currentsatet.UpdateState(this);
-
+        currentsatet.UpdateState(this);
     }
     public void PindahState(CopetBaseState kondisi)
     {

@@ -27,11 +27,6 @@ public class AgentWanderState : AgentBaseState
 
     public override void UpdaterState(AgentStateManager agen)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            agen.PindahState(agen.cubeMengejar);
-        }
-
         RaycastHit hit;
         if(Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget, out hit))
         {
@@ -56,7 +51,7 @@ public class AgentWanderState : AgentBaseState
             jalanjalan();
         }
 
-        if (target == null)
+        if (target != null)
         {
             jarakxyzkeTarget = target.transform.position - AgenAI.transform.position;
             if (Physics.Raycast(AgenAI.transform.position, jarakxyzkeTarget, out hit))

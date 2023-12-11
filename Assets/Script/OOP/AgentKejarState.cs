@@ -23,10 +23,6 @@ public class AgentKejarState : AgentBaseState
     }
     public override void UpdaterState(AgentStateManager agen)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            agen.PindahState(agen.cubeBerjalan);
-        }
         if(target!= null)
         {
             this.agenAi.SetDestination(target.transform.position);

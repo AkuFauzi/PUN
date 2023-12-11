@@ -106,7 +106,7 @@ public class BukuManager : MonoBehaviourPun
         {
             textMeshProUGUI.text = "Temukan satu lembar sejarah dan naik ke tingkat selanjutnya";
         }
-        else if (Item[2] || Item[4] || Item[5]!=null)
+        else if (Item[2] != null && Item[4] != null && Item[5]!=null)
         {
             textMeshProUGUI.text = "Temukan tiga lembar sejarah dan naik ke tingkat selanjutnya";
         }

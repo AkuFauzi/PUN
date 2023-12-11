@@ -16,7 +16,8 @@ TagManager:
   - ColliderQuest
   - WinUI
   - satpam
-  - copet
+  - Copet
+  - tempatsembunyi
   layers:
   - Default
   - TransparentFX
