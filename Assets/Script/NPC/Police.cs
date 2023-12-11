@@ -42,7 +42,7 @@ public class Police : NPC
             case NPCBEHAVIOUR.Hide:
                 break;
             case NPCBEHAVIOUR.CHASE:
-                moveSpeed = 8;
+                moveSpeed = 5;
                 agent.SetDestination(target.transform.position);
                 break;
             case NPCBEHAVIOUR.HIDEN:
