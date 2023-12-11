@@ -36,7 +36,7 @@ public class BukuManager : MonoBehaviourPun
             Kertas[0].SetActive(false);
             IsOpen = false;
 
-            for(int i = 0; i < Item.Length; i++)
+            for(int i = 0; i < Kertas.Length; i++)
             {
                 Kertas[i].SetActive(false);
             }
@@ -114,13 +114,9 @@ public class BukuManager : MonoBehaviourPun
         {
             textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
         }
-
-        for (int i = 0; i < 5; i++)
+        if (Item[0] == null && Item[1] == null && Item[2] == null && Item[3] == null && Item[4] == null && Item[5] == null)
         {
-            if (Item[i] == null)
-            {
-                winUI.SetActive(true);
-            }
+            winUI.SetActive(true);
         }
 
     }

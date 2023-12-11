@@ -52,13 +52,19 @@ public class CopetWander : CopetBaseState
             jarakxyzkeTarget = target.transform.position - AgenAI.transform.position;
             if(Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget,out hit))
             {
-                if (hit.collider.gameObject) ;
+                if (hit.collider.gameObject.tag == ("satpam"))
+                {
+                    Debug.Log("AAAAAAAAAAAAAA");
+                    Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.green);
+                    agen.PindahState(agen.copethide);
+                }
             }
         }
     }
 
     void jalanjalan()
     {
+        Debug.Log("PPPPPPPPPPPPPPPPP");
         Vector3 wandertarget = Vector3.zero;
         float wanderadius = 3f;
         float wanderoffset = 9f;

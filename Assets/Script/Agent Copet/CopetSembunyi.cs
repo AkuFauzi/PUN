@@ -23,9 +23,9 @@ public class CopetSembunyi : CopetBaseState
         target = GameObject.FindGameObjectWithTag("satpam");
 
         AgenAI = agen.GetComponent<NavMeshAgent>();
-        AgenAI.speed = 2.0f;
+        AgenAI.speed = 5f;
         AgenAI.angularSpeed = 100f;
-        AgenAI.acceleration = 5.0f;
+        AgenAI.acceleration = 10f;
 
         VisAngle = 360;
         VisDistance = 3f;
@@ -38,7 +38,7 @@ public class CopetSembunyi : CopetBaseState
 
         for(int i =0; i<World.Instance.GetHidingPos().Length; i++)
         {
-            Vector3 hideDir = World.Instance.GetHidingPos()[i].transform.position;
+            Vector3 hideDir = World.Instance.GetHidingPos()[i].transform.position - target.transform.position;
             Vector3 hidepos = World.Instance.GetHidingPos()[i].transform.position + hideDir.normalized * 3;
 
             if(Vector3.Distance(agen.transform.position, hidepos) > dist )
