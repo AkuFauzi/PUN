@@ -10,6 +10,7 @@ public class Copet : NPC
         agent = GetComponent<NavMeshAgent>();
         State = NPCBEHAVIOUR.WALK;
         target = GameObject.FindGameObjectWithTag("satpam");
+        animator = GetComponent<Animator>();
     }
 
     public override void Update()
@@ -24,16 +25,15 @@ public class Copet : NPC
         }
         switch (State)
         {
-            case NPCBEHAVIOUR.RUN:
-                break;
-            case NPCBEHAVIOUR.IDLE:
-                break;
+
             case NPCBEHAVIOUR.WALK:
-                moveSpeed = 5;
+                moveSpeed = 2;
+                animator.SetFloat("Speed", 0.5f);
                 agent.SetDestination(RandomLocation());
                 break;
             case NPCBEHAVIOUR.Hide:
                 moveSpeed = 10;
+                animator.SetFloat("Speed", 1f);
                 int random = Random.Range(0, World.Instance.GetHidingPos().Length);
                 agent.SetDestination(World.Instance.GetHidingPos()[0].transform.position);
                 if (Vector3.Distance(transform.position, World.Instance.GetHidingPos()[0].transform.position) <= 2)
@@ -45,6 +45,7 @@ public class Copet : NPC
                 break;
             case NPCBEHAVIOUR.HIDEN:
                 moveSpeed = 0;
+                animator.SetFloat("Speed", 0f);
                 if(Vector3.Distance(transform.position, target.transform.position) >= 20)
                 {
                     State = NPCBEHAVIOUR.WALK;

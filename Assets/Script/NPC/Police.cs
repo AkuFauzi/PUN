@@ -8,6 +8,7 @@ public class Police : NPC
     public override void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         State = NPCBEHAVIOUR.WALK;
         target = GameObject.FindGameObjectWithTag("Copet");
     }
@@ -31,18 +32,16 @@ public class Police : NPC
 
         switch (State)
         {
-            case NPCBEHAVIOUR.RUN:
-                break;
-            case NPCBEHAVIOUR.IDLE:
-                break;
             case NPCBEHAVIOUR.WALK:
                 moveSpeed = 2;
                 agent.SetDestination(RandomLocation());
+                animator.SetFloat("Speed", 0.5f);
                 break;
             case NPCBEHAVIOUR.Hide:
                 break;
             case NPCBEHAVIOUR.CHASE:
                 moveSpeed = 5;
+                animator.SetFloat("Speed", 1f);
                 agent.SetDestination(target.transform.position);
                 break;
             case NPCBEHAVIOUR.HIDEN:

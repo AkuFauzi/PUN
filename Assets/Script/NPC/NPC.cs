@@ -7,35 +7,31 @@ public abstract class NPC : MonoBehaviour
 {
     public enum NPCBEHAVIOUR
     {
-        RUN,
-        IDLE,
         WALK,
         Hide,
         CHASE,
         HIDEN
     }
-    [SerializeField][ReadOnlyInspector] protected NPCBEHAVIOUR State;
+    public NPCBEHAVIOUR State;
     public NPCBEHAVIOUR GetState() { return State; }
-    [SerializeField] protected int moveSpeed;
-    [SerializeField][ReadOnlyInspector] protected GameObject target;
-    [SerializeField][ReadOnlyInspector] protected NavMeshAgent agent;
-    [SerializeField][ReadOnlyInspector] protected Vector3 jarakXYZKeTarget;
+    public int moveSpeed;
+    public GameObject target;
+    public NavMeshAgent agent;
+    public Vector3 jarakXYZKeTarget;
+    public Animator animator;
 
 
     public virtual void Start()
     {
-        State = NPCBEHAVIOUR.IDLE;
+        State = NPCBEHAVIOUR.WALK;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     public virtual void Update()
     {
         switch (State)
         {
-            case NPCBEHAVIOUR.RUN:
-                break;
-            case NPCBEHAVIOUR.IDLE:
-                break;
             case NPCBEHAVIOUR.WALK:
                 if (agent != null && agent.remainingDistance <= agent.stoppingDistance)
                 {
