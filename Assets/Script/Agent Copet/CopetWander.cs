@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -35,6 +36,7 @@ public class CopetWander : CopetBaseState
             {
                 if(AgenAI.remainingDistance < 1)
                 {
+                    Debug.Log("ate");
                     jalanjalan();
                 }
             }
@@ -52,10 +54,10 @@ public class CopetWander : CopetBaseState
             jarakxyzkeTarget = target.transform.position - AgenAI.transform.position;
             if(Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget,out hit))
             {
+                Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.green);
                 if (hit.collider.gameObject.tag == ("satpam"))
                 {
                     Debug.Log("AAAAAAAAAAAAAA");
-                    Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.green);
                     agen.PindahState(agen.copethide);
                 }
             }

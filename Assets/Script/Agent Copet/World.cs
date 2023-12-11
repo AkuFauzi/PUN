@@ -7,7 +7,7 @@ public class World : MonoBehaviour
     private static readonly World instance = new World();
     private static GameObject[] hidingpos;
 
-    static World()
+    void Start()
     {
         hidingpos = GameObject.FindGameObjectsWithTag("tempatsembunyi");
     }
