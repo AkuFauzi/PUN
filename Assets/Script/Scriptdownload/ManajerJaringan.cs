@@ -181,7 +181,7 @@ public class ManajerJaringan : MonoBehaviourPunCallbacks
         daftarPlayerGameobject.transform.Find("namaPlayerText").GetComponent<Text>().text = newPlayer.NickName;
         if (newPlayer.ActorNumber == PhotonNetwork.LocalPlayer.ActorNumber)
         {
-            daftarPlayerGameobject.transform.Find("IndikatorPlyer").gameObject.SetActive(true);
+            daftarPlayerGameobject.transform.Find("IndikatorPlayer").gameObject.SetActive(true);
 
         }
         else

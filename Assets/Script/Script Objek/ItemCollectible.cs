@@ -7,30 +7,17 @@ public class ItemCollectible : MonoBehaviourPun
 {
     public GameObject Interact;
 
-    private void Awake()
+    void Start()
     {
-        if (photonView.IsMine)
-        {
-            Interact = GameObject.FindGameObjectWithTag("Interact");
-        }
-
+        Interact.SetActive(false);
     }
 
-    private void Start()
+    void OnTriggerStay(Collider other)
     {
+
         if (photonView.IsMine)
         {
-            
-            Interact.SetActive(false);
-        }
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (photonView.IsMine)
-        {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.CompareTag("Player"))
             {
                 Interact.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.F))
@@ -44,11 +31,16 @@ public class ItemCollectible : MonoBehaviourPun
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
+
         if (photonView.IsMine)
         {
-            Interact.SetActive(false);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Interact.SetActive(false);
+            }
         }
+
     }
 }

@@ -7,10 +7,13 @@ public abstract class NPC : MonoBehaviour
 {
     public enum NPCBEHAVIOUR
     {
+        IDLE,
         WALK,
         Hide,
         CHASE,
-        HIDEN
+        HIDEN,
+        KEMBALI
+        
     }
     public NPCBEHAVIOUR State;
     public NPCBEHAVIOUR GetState() { return State; }
@@ -46,9 +49,9 @@ public abstract class NPC : MonoBehaviour
     public virtual Vector3 RandomLocation()
     {
         Vector3 finalposition = Vector3.zero;
-        Vector3 randomposition = Random.insideUnitSphere * 250;
+        Vector3 randomposition = Random.insideUnitSphere * 87;
         randomposition += transform.position;
-        if (NavMesh.SamplePosition(randomposition, out NavMeshHit hit, 250, 1))
+        if (NavMesh.SamplePosition(randomposition, out NavMeshHit hit, 87, 1))
         {
             finalposition = hit.position;
         }

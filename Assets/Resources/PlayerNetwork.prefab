@@ -379,6 +379,7 @@ MonoBehaviour:
   colliderQuest: []
   winUI: {fileID: 0}
   textMeshProUGUI: {fileID: 0}
+  waktu: 5
   IsOpen: 0
 --- !u!1 &7548196039468358153
 GameObject:

@@ -27,29 +27,44 @@ public class Copet : NPC
         {
 
             case NPCBEHAVIOUR.WALK:
-                moveSpeed = 2;
-                animator.SetFloat("Speed", 0.5f);
+                moveSpeed = 5;
+                if(moveSpeed >= 5)
+                {
+                    animator.SetFloat("Speed", 0.5f);
+                }
+
                 agent.SetDestination(RandomLocation());
                 break;
             case NPCBEHAVIOUR.Hide:
-                moveSpeed = 10;
-                animator.SetFloat("Speed", 1f);
+                moveSpeed = 25;
+                if(moveSpeed >= 25)
+                {
+                    animator.SetFloat("Speed", 1f);
+                }
+
                 int random = Random.Range(0, World.Instance.GetHidingPos().Length);
                 agent.SetDestination(World.Instance.GetHidingPos()[0].transform.position);
                 if (Vector3.Distance(transform.position, World.Instance.GetHidingPos()[0].transform.position) <= 2)
                 {
-                    State = NPCBEHAVIOUR.HIDEN;
+                    State = NPCBEHAVIOUR.IDLE;
                 }
                 break;
             case NPCBEHAVIOUR.CHASE:
                 break;
             case NPCBEHAVIOUR.HIDEN:
+                break;
+            case NPCBEHAVIOUR.IDLE:
                 moveSpeed = 0;
-                animator.SetFloat("Speed", 0f);
-                if(Vector3.Distance(transform.position, target.transform.position) >= 20)
+                if(moveSpeed == 0)
+                {
+                    animator.SetFloat("gerak", 0f);
+                }
+                if (Vector3.Distance(transform.position, target.transform.position) > 1000)
                 {
                     State = NPCBEHAVIOUR.WALK;
                 }
+                break;
+            case NPCBEHAVIOUR.KEMBALI:
                 break;
             default:
                 break;

@@ -18,6 +18,8 @@ TagManager:
   - satpam
   - Copet
   - tempatsembunyi
+  - Lantai
+  - jalan
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - satpam
   - 
   - 
   - 

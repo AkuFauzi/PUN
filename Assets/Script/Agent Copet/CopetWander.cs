@@ -8,77 +8,117 @@ public class CopetWander : CopetBaseState
 {
     public float Jitter;
     public NavMeshAgent AgenAI;
+    public Animator animator;
 
     private static GameObject target;
     public Vector3 jarakxyzkeTarget;
+    public float walkRadius;
 
+    float sudutkeTarget;
+    public float jarakVectorkeTarget;
+
+    public float VisAngle;
+    public float VisDistance;
     public override void EnterState(CopetStateManager agen)
     {
         Debug.Log("copet berjalan");
 
         target = GameObject.FindGameObjectWithTag("satpam");
-        
-        AgenAI=agen.GetComponent<NavMeshAgent>();
-        AgenAI.speed = 2.0f;
-        AgenAI.angularSpeed = 100f;
-        AgenAI.acceleration = 5.0f;
-        Jitter = 0.5f;
 
-        jalanjalan();
+        AgenAI = agen.GetComponent<NavMeshAgent>();
+        animator = agen.GetComponent<Animator>();
+        if (AgenAI != null)
+        {
+            AgenAI.speed = 2.0f;
+            AgenAI.angularSpeed = 100f;
+            AgenAI.acceleration = 5.0f;
+            Jitter = 0.5f;
+            walkRadius = 25f;
+            animator.SetFloat("gerak", 0.5f);
+            VisAngle = 360;
+            VisDistance = 5f;
+            this.AgenAI.SetDestination(RandomLocation());
+        }
+
     }
 
     public override void UpdateState(CopetStateManager agen)
     {
         RaycastHit hit;
-        if(Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget,out hit))
+        //jarakxyzkeTarget = GameObject.FindGameObjectWithTag("jalan").transform.position - AgenAI.transform.position;
+        if (Physics.Raycast(AgenAI.transform.position, jarakxyzkeTarget, out hit))
         {
-            if(hit.collider.gameObject.tag != ("satpam"))
+            if (hit.collider.gameObject.tag != ("satpam"))
             {
-                if(AgenAI.remainingDistance < 1)
+                if (AgenAI.remainingDistance < 1)
                 {
                     Debug.Log("ate");
-                    jalanjalan();
+                    this.AgenAI.SetDestination(RandomLocation());
                 }
             }
         }
         else
         {
-            if(AgenAI.remainingDistance < 1)
+            if (AgenAI.remainingDistance < 1)
             {
-                jalanjalan();
+                this.AgenAI.SetDestination(RandomLocation());
             }
         }
+        if (AgenAI.remainingDistance < 1)
+        {
+            this.AgenAI.SetDestination(RandomLocation());
+        }
 
-        if(target != null)
+        if (target != null)
         {
             jarakxyzkeTarget = target.transform.position - AgenAI.transform.position;
-            if(Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget,out hit))
+            sudutkeTarget = Vector3.Angle(jarakxyzkeTarget, agen.transform.forward);
+            jarakVectorkeTarget = jarakxyzkeTarget.magnitude;
+
+            if (jarakVectorkeTarget < VisDistance && sudutkeTarget < VisAngle)
             {
-                Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.green);
-                if (hit.collider.gameObject.tag == ("satpam"))
+                //if (Physics.Raycast(AgenAI.transform.position, jarakxyzkeTarget, out hit))
+                //{
+                //    Debug.Log(hit.collider.gameObject.name);
+                //    if(hit.collider.gameObject.CompareTag("satpam"))
+                //    {
+                //        Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.red);
+                //        agen.PindahState(agen.copethide);
+                //    }
+                //}
+                if (Vector3.Distance(AgenAI.transform.position, target.transform.position) <= 10f);
                 {
-                    Debug.Log("AAAAAAAAAAAAAA");
+                    Debug.Log("KEna");
                     agen.PindahState(agen.copethide);
                 }
             }
+
+            //if (Physics.Raycast(AgenAI.transform.position,jarakxyzkeTarget,out hit))
+            //{
+
+            //    if (hit.collider.gameObject.tag == ("satpam"))
+            //    {
+            //        Debug.DrawRay(AgenAI.transform.position, jarakxyzkeTarget, Color.red);
+            //        Debug.Log("AAAAAAAAAAAAAA");
+            //        agen.PindahState(agen.copethide);
+            //    }
+            //}
+        }
+        else
+        {
+            Debug.Log("HIT");
         }
     }
 
-    void jalanjalan()
+    public Vector3 RandomLocation()
     {
-        Debug.Log("PPPPPPPPPPPPPPPPP");
-        Vector3 wandertarget = Vector3.zero;
-        float wanderadius = 3f;
-        float wanderoffset = 9f;
-
-        wandertarget += new Vector3
-        (Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
-
-        wandertarget.Normalize();
-        wandertarget *= wanderadius;
-
-        Vector3 targetlokal = wandertarget + new Vector3(0, 0, wanderoffset);
-        Vector3 targetworld = AgenAI.transform.InverseTransformVector(targetlokal);
-        AgenAI.SetDestination(targetworld + new Vector3(0, 0, wanderoffset));
+        Vector3 finalPosition = Vector3.zero;
+        Vector3 ramdomPosition = Random.insideUnitSphere * walkRadius;
+        ramdomPosition += this.AgenAI.transform.position;
+        if (NavMesh.SamplePosition(ramdomPosition, out NavMeshHit hit, walkRadius, 1))
+        {
+            finalPosition = hit.position;
+        }
+        return finalPosition;
     }
 }

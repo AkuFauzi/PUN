@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BukuManager : MonoBehaviourPun
 {
@@ -15,6 +17,7 @@ public class BukuManager : MonoBehaviourPun
     public GameObject[] colliderQuest;
     public GameObject winUI;
     public TextMeshProUGUI textMeshProUGUI;
+    public float waktu = 5;
 
     public bool IsOpen;
 
@@ -35,11 +38,22 @@ public class BukuManager : MonoBehaviourPun
             buku.SetActive(false);
             Kertas[0].SetActive(false);
             IsOpen = false;
+            colliderQuest[0].SetActive(false);
+            colliderQuest[1].SetActive(false);
 
-            for(int i = 0; i < Kertas.Length; i++)
+            for (int i = 0; i < Item.Length; i++)
             {
-                Kertas[i].SetActive(false);
+                Item[i].SetActive(true);
             }
+
+            Kertas[0].SetActive(false);
+            Kertas[1].SetActive(false);
+            Kertas[2].SetActive(false);
+            Kertas[3].SetActive(false);
+            Kertas[4].SetActive(false);
+            Kertas[5].SetActive(false);
+            Kertas[6].SetActive(false);
+            Kertas[7].SetActive(false);
         }
     }
 
@@ -73,6 +87,7 @@ public class BukuManager : MonoBehaviourPun
         if (Item[1] == null)
         {
             Kertas[1].SetActive(true);
+            colliderQuest[0].SetActive(false);
         }
         if (Item[2] == null)
         {
@@ -80,15 +95,16 @@ public class BukuManager : MonoBehaviourPun
         }
         if (Item[3] == null)
         {
-            Kertas[6].SetActive(true);
+            Kertas[5].SetActive(true);
+            colliderQuest[0].SetActive(false);
         }
         if (Item[4] == null)
         {
-            Kertas[7].SetActive(true);
+            Kertas[6].SetActive(true);
         }
         if (Item[5] == null)
         {
-            Kertas[8].SetActive(true);
+            Kertas[7].SetActive(true);
         }
         if (Item[6] == null)
         {
@@ -104,19 +120,29 @@ public class BukuManager : MonoBehaviourPun
     {
         if (Item[3] != null)
         {
-            textMeshProUGUI.text = "Temukan satu lembar sejarah dan naik ke tingkat selanjutnya";
+            textMeshProUGUI.text = "Temukan semua lembar sejarah";
         }
         else if (Item[2] != null && Item[4] != null && Item[5]!=null)
         {
-            textMeshProUGUI.text = "Temukan tiga lembar sejarah dan naik ke tingkat selanjutnya";
+            textMeshProUGUI.text = "Temukan semua lembar sejarah";
         }
         else
         {
             textMeshProUGUI.text = "Lembar sejarah telah diambil Tekan E untuk membuka buku";
         }
-        if (Item[0] == null && Item[1] == null && Item[2] == null && Item[3] == null && Item[4] == null && Item[5] == null)
+
+        if (Item[2]  == null && Item[4] == null && Item[5] == null)
         {
+            colliderQuest[1].SetActive(false);
+        }
+        if (Item[0] == null && Item[1] == null && Item[2] == null && Item[3] == null && Item[4] == null && Item[5] == null)
+        {        
             winUI.SetActive(true);
+            waktu -= Time.deltaTime;
+            if(waktu <= 0)
+            {
+                winUI.SetActive(false);
+            }
         }
 
     }
